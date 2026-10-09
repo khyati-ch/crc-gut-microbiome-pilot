@@ -1,0 +1,10 @@
+sample-id	forward-absolute-filepath	reverse-absolute-filepath
+SRR2143562	/path/to/SRR2143562_1.fastq.gz	/path/to/SRR2143562_2.fastq.gz
+SRR2143716	/path/to/SRR2143716_1.fastq.gz	/path/to/SRR2143716_2.fastq.gz
+SRR2143789	/path/to/SRR2143789_1.fastq.gz	/path/to/SRR2143789_2.fastq.gz
+SRR2143840	/path/to/SRR2143840_1.fastq.gz	/path/to/SRR2143840_2.fastq.gz
+SRR2143978	/path/to/SRR2143978_1.fastq.gz	/path/to/SRR2143978_2.fastq.gz
+SRR2143994	/path/to/SRR2143994_1.fastq.gz	/path/to/SRR2143994_2.fastq.gz
+SRR2144038	/path/to/SRR2144038_1.fastq.gz	/path/to/SRR2144038_2.fastq.gz
+SRR2144096	/path/to/SRR2144096_1.fastq.gz	/path/to/SRR2144096_2.fastq.gz
+SRR2144102	/path/to/SRR2144102_1.fastq.gz	/path/to/SRR2144102_2.fastq.gz

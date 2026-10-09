@@ -1,0 +1,4 @@
+Group 1,Group 2,Sample size,Permutations,pseudo-F,p-value,q-value
+adenoma,cancer,6,999,0.9287690010314381,0.717,0.796
+adenoma,normal,6,999,1.2402068723899558,0.192,0.5760000000000001
+cancer,normal,6,999,0.799591290721051,0.796,0.796
