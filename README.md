@@ -124,30 +124,42 @@ Input sequencing depth varied by approximately 6.4-fold across samples, an impor
 
 ### Alpha Diversity
 
-Shannon diversity, Simpson diversity, and Pielou evenness were calculated. A depth-standardized analysis was subsequently generated using a rarefaction depth of 15,000 reads per sample, retaining all nine samples.
+Alpha diversity was calculated from the feature table rarefied to 15,000 reads per sample. All nine samples were retained, with three samples in each diagnostic group.
 
-Relevant outputs:
+| Sample ID | Group | Shannon | Simpson (QIIME 2 metric) | Pielou evenness |
+|---|---|---:|---:|---:|
+| SRR2143562 | Normal | 4.646 | 0.919 | 0.681 |
+| SRR2143789 | Normal | 5.569 | 0.955 | 0.740 |
+| SRR2143978 | Normal | 5.971 | 0.971 | 0.759 |
+| SRR2143994 | Adenoma | 5.653 | 0.966 | 0.824 |
+| SRR2144038 | Adenoma | 4.827 | 0.926 | 0.700 |
+| SRR2144102 | Adenoma | 5.790 | 0.972 | 0.790 |
+| SRR2143716 | Cancer | 5.148 | 0.947 | 0.708 |
+| SRR2143840 | Cancer | 4.683 | 0.876 | 0.620 |
+| SRR2144096 | Cancer | 6.090 | 0.966 | 0.744 |
 
-- `results/alpha-diversity-all-metrics.xlsx`
-- `figures/shannon-diversity.png`
+Shannon diversity ranged from **4.646 to 5.971** in normal controls, **4.827 to 5.790** in adenoma, and **4.683 to 6.090** in cancer samples. The cancer group contained both the lowest Shannon value among its samples and the highest value across the entire pilot. This within-group spread is substantial relative to the differences between groups.
 
-The pilot shows variation among individual samples and does not establish a clear, consistent diversity trend across the normal–adenoma–cancer sequence.
+Pielou evenness ranged from **0.681 to 0.759** in normal controls, **0.700 to 0.824** in adenoma, and **0.620 to 0.744** in cancer. The adenoma samples had the highest observed evenness value, while one cancer sample had the lowest. These individual values do not form a consistent increase or decrease across the normal–adenoma–cancer sequence.
 
-Rarefaction standardizes the number of reads sampled for this analysis, but it does not overcome the small sample size or establish statistical significance.
+The sample size is too small to establish whether these patterns reflect reproducible group-level differences. The results describe the nine samples in this pilot, not a general trend in CRC.
+
+**Output:** `results/alpha-diversity-all-metrics.xlsx`; `figures/shannon-diversity.png`.
 
 ### Beta Diversity
 
-The existing Bray–Curtis PCoA was based on the original DADA2 feature table.
+Bray–Curtis dissimilarities were calculated from the same feature table rarefied to **15,000 reads per sample**. Principal Coordinates Analysis (PCoA) summarized the distances between the nine microbial community profiles.
 
-- **PCoA axis 1:** 23.37% of variation.
-- **PCoA axis 2:** 17.81% of variation.
-- **Overall PERMANOVA:** pseudo-F = 0.981, p = 0.537, using 999 permutations.
+- **PCoA axis 1:** 22.60% of variation.
+- **PCoA axis 2:** 19.45% of variation.
+- **Combined variation represented by the first two axes:** 42.05%.
+- **PERMANOVA:** pseudo-F = 1.010; *p* = 0.413; 999 permutations; 9 samples across 3 groups.
 
-The groups overlapped in the ordination, and the overall PERMANOVA result was not statistically significant.
+The overall PERMANOVA did not detect a statistically significant difference in community composition among normal controls, adenoma, and cancer samples (*p* = 0.413). In this dataset, the observed between-sample variation was not sufficiently associated with diagnostic group to produce a significant overall group effect.
 
-This does not establish that the groups have identical microbiomes or that disease-associated differences are absent. With only three samples per group, statistical power is limited.
+The first two PCoA axes capture 42.05% of the variation in the distance matrix; the remaining variation lies in later axes. The ordination therefore provides a two-dimensional summary rather than a complete representation of community differences. With only three samples per group, this pilot cannot determine whether the lack of statistical significance reflects genuinely similar communities or insufficient power to detect differences.
 
-The beta-diversity results should not be described as a rarefied reanalysis unless those analyses are explicitly rerun and documented.
+**Output:** `results/beta-rarefied-15000/bray-curtis-rarefied-15000.qza`, `results/beta-rarefied-15000/bray-curtis-pcoa-rarefied-15000.qza`, and `results/beta-rarefied-15000/permanova-rarefied-15000-3groups.qzv`.
 
 ## Figures
 
@@ -155,7 +167,7 @@ The beta-diversity results should not be described as a rarefied reanalysis unle
 
 ![Bray–Curtis PCoA of the nine-sample pilot](figures/bray-curtis-pcoa.png)
 
-The first two axes explain 23.37% and 17.81% of the variation, respectively.
+PCoA axis 1 explains 22.60% of the variation and axis 2 explains 19.45%. Together, the first two axes represent 42.05% of the variation in the rarefied Bray–Curtis distance matrix. The overall PERMANOVA was not significant (pseudo-F = 1.010, p = 0.413; 999 permutations).
 
 ### Shannon Alpha Diversity
 
@@ -183,7 +195,6 @@ Raw sequencing files, reference artifacts, and large QIIME 2 intermediate artifa
 
 - Only three samples represent each diagnostic group.
 - Sequencing depth differs substantially among samples.
-- Alpha- and beta-diversity results were not all generated from the same feature-table version.
 - The current helper script is not an end-to-end reproducible pipeline.
 - The pilot cannot establish causation, clinical utility, or equivalence between diagnostic groups.
 - 16S amplicon data do not directly measure microbial functional genes or metabolic pathways.
