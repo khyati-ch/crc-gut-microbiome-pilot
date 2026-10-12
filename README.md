@@ -17,7 +17,7 @@ This pilot examines:
 
 - **Alpha diversity:** within-sample microbial diversity.
 - **Beta diversity:** differences in microbial community composition between samples.
-- **Taxonomic composition:** microbial taxa identified from 16S rRNA sequences.
+- **Taxonomic profiling:** Selected the SILVA 144 reference classifier for planned taxonomic assignment of 16S rRNA representative sequences using QIIME 2.
 
 Although the broader biological motivation includes bile acid and lipid metabolism, 16S amplicon sequencing does not directly measure microbial metabolic genes, pathway activity, or metabolite concentrations. These questions require additional functional or metabolomic data.
 
